@@ -2,9 +2,9 @@
 
 > Thay **mọi** ô có chữ ĐIỀN nằm trong ngoặc vuông bằng nội dung của bạn, xoá luôn cả dấu ngoặc vuông. Lệnh `python tools/check_submission.py` sẽ báo FAIL nếu còn sót bất kỳ chỗ nào.
 
-- **Họ tên:** Vu Quoc Huy
-- **MSSV:** 2A202602929 (phải trùng với MSSV trong tên repo `<HoVaTen>-<MSSV>-Track4-Day21`)
-- **Lớp:** AI20K-T4
+- **Họ tên:** Vũ Quốc Huy
+- **MSSV:** 2A202602929
+- **Lớp:**
 - **Link repo:** https://github.com/VuQuocHuy89/day06-2A202602929
 - **Topic:** A — LiDAR-camera projection QA
 - **Dataset:** data/kitti_mini
