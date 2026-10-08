@@ -37,9 +37,9 @@ def points_in_box(points_cam: np.ndarray, obj) -> np.ndarray:
     )
 
 
-def frame_measurements(data_root: str, frame_id: str, yaw_levels: list[float]) -> list[dict]:
-    frame = load_frame(data_root, frame_id)
-    points = frame["points"]
+def measure_points(
+    data_root: str, frame_id: str, frame: dict, points: np.ndarray, yaw_levels: list[float]
+) -> list[dict]:
     calib = frame["calib"]
     cam_true = velo_to_cam(points[:, :3], calib)
     object_masks: dict[str, list[tuple[object, np.ndarray]]] = {name: [] for name in CLASSES}
@@ -86,6 +86,11 @@ def frame_measurements(data_root: str, frame_id: str, yaw_levels: list[float]) -
     return rows
 
 
+def frame_measurements(data_root: str, frame_id: str, yaw_levels: list[float]) -> list[dict]:
+    frame = load_frame(data_root, frame_id)
+    return measure_points(data_root, frame_id, frame, frame["points"], yaw_levels)
+
+
 def render_overlay(frame: dict, yaw_deg: float = 0.0) -> np.ndarray:
     calib = perturb_extrinsic(frame["calib"], yaw_deg=yaw_deg)
     uv, depth, _ = project_velo_to_image(frame["points"], calib, frame["image"].shape)
@@ -119,9 +124,10 @@ def save_failure(data_root: str, frame_id: str, out: Path) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--data-root", default="data/kitti_mini")
-    parser.add_argument("--frames", nargs="+", default=list(DEFAULT_FRAMES))
-    parser.add_argument("--yaw-levels", nargs="+", type=float, default=[0, 0.5, 1, 2, 3])
+    parser.add_argument("--data-root", default="data/kitti_mini", help="KITTI or nuScenes dataset root")
+    parser.add_argument("--frames", nargs="+", default=list(DEFAULT_FRAMES), help="frame IDs to benchmark")
+    parser.add_argument("--yaw-levels", nargs="+", type=float, default=[0, 0.5, 1, 2, 3],
+                        help="yaw perturbations in degrees")
     args = parser.parse_args()
 
     rows = [

@@ -28,6 +28,12 @@ Bảng hoặc plot số liệu, kèm ảnh/video demo. Ghi rõ đường dẫn f
 
 ![demo](../results/figures/overlay_kitti_000011.png)
 
+[B2] Stress test trên ba frame KITTI dùng random dropout giữ 90/70/50% điểm và Gaussian noise σ=0.02/0.05/0.10 m. Object-point support lần lượt còn 89.8/70.4/49.9% với dropout và 97.9/92.3/83.3% với noise; box hit ratio tương ứng là 99.5/99.5/99.4% và 99.5/99.2/99.2%. [CSV](../results/topic_a_stress.csv), [biểu đồ](../results/figures/topic_a_stress_test.png).
+
+[B3] Đo pipeline trên frame 000011 với năm mức yaw trong 21 lần chạy; bỏ lần warm-up đầu khi tính percentile. p50=238.62 ms, p95=449.36 ms trên Intel Core i5-7300U 2.60 GHz, RAM 15.5 GB; GPU không được phát hiện và không dùng. [CSV latency](../results/topic_a_latency.csv).
+
+[B5] Chạy cùng yaw sweep trên KITTI (000008, 000011, 000049) và nuScenes (scene-1094_000, _007, _008; cảnh đêm sau mưa). Hit ratio gộp tại yaw 0/1/2° lần lượt là 99.5/95.0/87.4% và 100.0/95.4/88.7%, gần nhau trên các frame đã chọn. KITTI dùng LiDAR 64 beam, có khoảng 108–123 nghìn điểm/frame, ảnh 1242×375 và fx=721.5 px; nuScenes dùng 32 beam, khoảng 34 nghìn điểm/frame, ảnh 1600×900, fx=1266.4 px và lệch timestamp khoảng 35–38 ms đã được bù ego-motion. Lưu ý adapter nuScenes tạo 2D box bằng cách chiếu 3D annotation, nên hit ratio 100% tại yaw 0° không phải nhãn độc lập; khác biệt còn chịu ảnh hưởng của mật độ điểm, tiêu cự, box và cảnh, không suy rộng cho toàn dataset. [CSV](../results/topic_a_dataset_compare.csv), [biểu đồ](../results/figures/topic_a_dataset_compare.png).
+
 ## 3. Failure case
 
 Nêu khi nào hệ thống hoặc phương pháp fail, vì sao fail, và liên hệ tới lớp nào trong 6 lớp debug: I/O, Geometry, Time, Preprocess, Model, Metric.
@@ -49,7 +55,11 @@ Các lệnh tái tạo lại toàn bộ kết quả từ repo sạch.
 ```bash
 python -m src.test_projection
 python -m src.topic_a --data-root data/kitti_mini --frames 000008 000011 000049 --yaw-levels 0 0.5 1 2 3
+python -m src.topic_a_bonus --help
+python -m src.topic_a_bonus
 ```
+
+[B4] `src/topic_a_bonus.py` có tham số CLI kèm help, giá trị mặc định và chạy không tham số để tạo stress test, latency, so sánh dataset cùng các file bằng chứng trong `results/`.
 
 ## 6. Khai báo sử dụng AI
 
@@ -57,4 +67,4 @@ Ghi rõ đã dùng công cụ AI nào, dùng vào việc gì, và bạn đã t�
 
 | Công cụ | Dùng cho việc gì | Bạn đã kiểm chứng thế nào |
 |---|---|---|
-| ChatGPT/Codex | Giải thích yêu cầu và hỗ trợ viết phép chiếu, benchmark, báo cáo | `python -m src.test_projection` qua; chạy lại benchmark tạo cùng CSV; số liệu được tính từ các frame KITTI đã nêu |
+| ChatGPT/Codex | Giải thích yêu cầu và hỗ trợ viết phép chiếu, benchmark, bonus, báo cáo | `python -m src.test_projection` và checker đều qua; stress test dùng seed cố định; các số liệu được tạo lại từ script trên các frame đã nêu |

@@ -1,0 +1,22 @@
+run,warmup,latency_ms,frame,yaw_levels_deg,cpu,ram_gb,gpu_detected
+0,True,254.61655499975677,000011,0.0;0.5;1.0;2.0;3.0,Intel(R) Core(TM) i5-7300U CPU @ 2.60GHz,15.5,not detected
+1,False,211.8346689999271,000011,0.0;0.5;1.0;2.0;3.0,Intel(R) Core(TM) i5-7300U CPU @ 2.60GHz,15.5,not detected
+2,False,440.5596639999203,000011,0.0;0.5;1.0;2.0;3.0,Intel(R) Core(TM) i5-7300U CPU @ 2.60GHz,15.5,not detected
+3,False,211.50258399984523,000011,0.0;0.5;1.0;2.0;3.0,Intel(R) Core(TM) i5-7300U CPU @ 2.60GHz,15.5,not detected
+4,False,205.34008599997833,000011,0.0;0.5;1.0;2.0;3.0,Intel(R) Core(TM) i5-7300U CPU @ 2.60GHz,15.5,not detected
+5,False,269.5818510001118,000011,0.0;0.5;1.0;2.0;3.0,Intel(R) Core(TM) i5-7300U CPU @ 2.60GHz,15.5,not detected
+6,False,616.5529330000936,000011,0.0;0.5;1.0;2.0;3.0,Intel(R) Core(TM) i5-7300U CPU @ 2.60GHz,15.5,not detected
+7,False,377.576081999905,000011,0.0;0.5;1.0;2.0;3.0,Intel(R) Core(TM) i5-7300U CPU @ 2.60GHz,15.5,not detected
+8,False,272.27483900014704,000011,0.0;0.5;1.0;2.0;3.0,Intel(R) Core(TM) i5-7300U CPU @ 2.60GHz,15.5,not detected
+9,False,358.50619899974845,000011,0.0;0.5;1.0;2.0;3.0,Intel(R) Core(TM) i5-7300U CPU @ 2.60GHz,15.5,not detected
+10,False,238.42938600000707,000011,0.0;0.5;1.0;2.0;3.0,Intel(R) Core(TM) i5-7300U CPU @ 2.60GHz,15.5,not detected
+11,False,227.95003500004896,000011,0.0;0.5;1.0;2.0;3.0,Intel(R) Core(TM) i5-7300U CPU @ 2.60GHz,15.5,not detected
+12,False,196.68394200016337,000011,0.0;0.5;1.0;2.0;3.0,Intel(R) Core(TM) i5-7300U CPU @ 2.60GHz,15.5,not detected
+13,False,196.79099999984828,000011,0.0;0.5;1.0;2.0;3.0,Intel(R) Core(TM) i5-7300U CPU @ 2.60GHz,15.5,not detected
+14,False,238.80110800018883,000011,0.0;0.5;1.0;2.0;3.0,Intel(R) Core(TM) i5-7300U CPU @ 2.60GHz,15.5,not detected
+15,False,249.85750699988785,000011,0.0;0.5;1.0;2.0;3.0,Intel(R) Core(TM) i5-7300U CPU @ 2.60GHz,15.5,not detected
+16,False,201.24938300023132,000011,0.0;0.5;1.0;2.0;3.0,Intel(R) Core(TM) i5-7300U CPU @ 2.60GHz,15.5,not detected
+17,False,211.68618899991998,000011,0.0;0.5;1.0;2.0;3.0,Intel(R) Core(TM) i5-7300U CPU @ 2.60GHz,15.5,not detected
+18,False,207.01910899970244,000011,0.0;0.5;1.0;2.0;3.0,Intel(R) Core(TM) i5-7300U CPU @ 2.60GHz,15.5,not detected
+19,False,276.0678590002499,000011,0.0;0.5;1.0;2.0;3.0,Intel(R) Core(TM) i5-7300U CPU @ 2.60GHz,15.5,not detected
+20,False,427.75475400003415,000011,0.0;0.5;1.0;2.0;3.0,Intel(R) Core(TM) i5-7300U CPU @ 2.60GHz,15.5,not detected
